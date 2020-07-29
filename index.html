@@ -16,7 +16,13 @@
     <main class="main">
       <header class="header">
    <div class="header__container container">
-      <a class="header__logo"><img src="img/mainLogo.svg" alt="логотип сайта ТрансСервис" /></a>
+      <a class="header__logo">
+         <picture>
+            <source srcset="img/logo_mobile.png" media="(max-width: 767px)">
+            <source srcset="img/mainLogo.svg" media="(min-width: 767px)">
+            <img src="img/mainLogo.svg" alt="логотип сайта ТрансСервис" />
+         </picture>
+      </a>
       <div class="header__icon-menu">
          <span></span>
          <span></span>
