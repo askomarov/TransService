@@ -167,6 +167,14 @@ html {
      object-fit: cover;
 }
 
+.main-title {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 45px;
+  color: #313d4d;
+  display: inline-block;
+}
+
 .header__icon-menu {
   display: none;
 }
@@ -564,14 +572,6 @@ html {
   margin-bottom: 29px;
 }
 
-.about__title {
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 45px;
-  color: #313d4d;
-  display: inline-block;
-}
-
 .about__all-foto {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -657,7 +657,7 @@ html {
 
 .request {
   position: relative;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 
 .request__container {
@@ -811,6 +811,87 @@ html {
   background: rgba(0, 0, 0, 0.4);
 }
 
+.questions {
+  padding: 50px 0px;
+}
+
+.questions__title {
+  margin-bottom: 45px;
+}
+
+.questions__list {
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  padding: 28px;
+  padding-left: 118px;
+  -webkit-transition: all 0.5s linear 0s;
+  -o-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+
+.questions__list:hover > .questions__list-title::before {
+  background-color: #00309d8f;
+}
+
+.questions__list-title {
+  position: relative;
+  font-size: 16px;
+  line-height: 19px;
+  color: #313d4d;
+}
+
+.questions__list-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -85px;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.28);
+  background: url("../img/accordionArrow.svg") center no-repeat;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.questions__list-title[aria-expanded="true"]::before {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+      -ms-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+  background-color: #00309d;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L6 6L11 1' stroke='%23ffffff' stroke-width='2'/%3e%3c/svg%3e ");
+}
+
+.questions__accordion-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+
+.questions__text-body {
+  margin-top: 27px;
+  height: 100% !important;
+  -webkit-transition: all 0.5s linear 0s;
+  -o-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+
+.questions__text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #313d4d;
+}
+
 @media (min-width: 767.98px) {
   .slider-top__item {
     width: 225px !important;
@@ -864,6 +945,40 @@ html {
 @media (max-width: 850px) {
   .header__logo {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .request__content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: none;
+    padding: 0 10px;
+  }
+
+  .request__form-body {
+    position: static;
+    z-index: 2;
+    padding: 30px 20px;
+    width: auto;
+    height: auto;
+  }
+
+  .questions__title {
+    margin-bottom: 20px;
+  }
+
+  .questions__list {
+    padding-left: 60px;
+  }
+
+  .questions__list-title::before {
+    left: -48px;
+  }
+
+  .questions__accordion-menu {
+    gap: 15px;
   }
 }
 
@@ -1033,24 +1148,25 @@ html {
   }
 
   .request {
-    margin-bottom: 20px;
+    margin: 0;
   }
 
   .request__container {
-    height: 748px;
-    padding-top: 0;
+    height: auto;
+    padding: 50px 0;
   }
 
   .request__content {
-    border: none;
-    padding-top: 79px;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
   }
 
   .request__title {
     margin: 0;
     width: 100%;
     text-align: center;
-    margin-bottom: 21px;
+    margin-bottom: 20px;
     font-size: 28px;
   }
 
@@ -1058,21 +1174,13 @@ html {
     margin: 0;
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .request__img {
     position: absolute;
     bottom: -45px;
     left: 181px;
-  }
-
-  .request__form-body {
-    position: absolute;
-    top: 255px;
-    left: 26px;
-    width: 320px;
-    padding: 45px 32px 15px;
-    height: auto;
   }
 
   .request-form__input {
@@ -1106,5 +1214,13 @@ html {
 
   .hero__menu-list:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 26px;
+    text-align: center;
+    line-height: 30px;
   }
 }
